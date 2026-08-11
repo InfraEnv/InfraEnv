@@ -1,0 +1,21 @@
+{
+  "artifacts": {
+    "ATTRIBUTION.md": "sha256-d50cfeb4d953a158ae88713584a8c28db91c3c5b635f8d85b61f221fc18a6f81",
+    "catalog.json": "sha256-393b13a955983162ddbf103e26becd695dfac4ab344287c1bc650c7b0fc0373b",
+    "content-manifest.json": "sha256-1f220b9b18122758f3783372275babf7f280370e37e0d251a46d12ba38be206a",
+    "contracts/content-contract.d.ts": "sha256-96ca39c5c1f8691eec5838fc9e38ad5544016699780bb80ab6511ba2c8245b9b",
+    "contracts/content-manifest.schema.json": "sha256-cc497ef3481fce579b1f9332ce40e32d1aad0daf2e8e23328c182b9bf1384bab",
+    "contracts/content.schema.json": "sha256-41f99f92300606d36c822590d83d713db3c8791e39e461a97200e3afe12c4169",
+    "contracts/profile-manifest.schema.json": "sha256-a03200a810dbd599966aaec8f92167f297ce72868ea5871ab1a5afe5cafe742a",
+    "DO-NOT-EDIT.txt": "sha256-ce75da4a8ee8f1fab597fc2707b54c494321812a6c7ad68a4da061f30ea0732d",
+    "lesson-documents/lesson-find-slow-worker.zh-CN.json": "sha256-b3cb8cb8355f874478f016c5c6f0cca84559d6b057f16b00d5191f306544d84c",
+    "LICENSE-CODE": "sha256-eab0ea832d03185cf81250640573b69a44e01952d87c457c790051156b751a64",
+    "LICENSE-CONTENT": "sha256-1a9bbd8ceb5612794d13f6280a3f1624a6ad02c14bd70622faac20378e9ed931",
+    "mdx/lessons/find-slow-worker.zh-CN.mdx": "sha256-20982f3cb9a2c89b363d575a1d781e1a09542f87ccfdf4a09ce0364454606389"
+  },
+  "catalogSha256": "sha256-393b13a955983162ddbf103e26becd695dfac4ab344287c1bc650c7b0fc0373b",
+  "contentLicense": "CC-BY-4.0",
+  "contentVersion": "0.2.0-alpha.0",
+  "profile": "runtime",
+  "schemaVersion": "2.0.0"
+}

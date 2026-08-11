@@ -4,8 +4,8 @@ import { fileURLToPath } from "node:url";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const builds = [
-  ["infraenv/runtime:0.1.0-alpha.0", "docker/runtime-sidecar/Dockerfile"],
-  ["infraenv/sandbox:0.1.0-alpha.0", "docker/sandbox/Dockerfile"]
+  ["infraenv/runtime:0.2.0-alpha.0", "docker/runtime-sidecar/Dockerfile"],
+  ["infraenv/sandbox:0.2.0-alpha.0", "docker/sandbox/Dockerfile"]
 ];
 
 for (const [tag, dockerfile] of builds) {

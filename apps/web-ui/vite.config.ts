@@ -7,6 +7,9 @@ export default defineConfig({
   build: { outDir: "dist", sourcemap: true },
   server: {
     port: 4173,
-    proxy: { "/v1": "http://127.0.0.1:8080" }
+    proxy: {
+      "/api": "http://127.0.0.1:7331",
+      "/v1": "http://127.0.0.1:8080"
+    }
   }
 });

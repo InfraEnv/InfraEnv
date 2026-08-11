@@ -5,10 +5,11 @@ import { apiRequest, executeRemote, waitForRuntime } from "./client.js";
 import { renderDoctor } from "./doctor.js";
 import { docker, runSandbox, startDockerSession, stopDockerSession } from "./docker.js";
 import { loadSession, markStopped, saveSession } from "./session-file.js";
+import { addV2Commands, clearSupervisorFault } from "./v2-commands.js";
 
 export function createProgram(): Command {
   const program = new Command();
-  program.name("infraenv").description("Portable AI infrastructure learning and S2 simulation runtime").version("0.1.0-alpha.0");
+  program.name("infraenv").description("Portable AI infrastructure learning and S2 simulation runtime").version("0.2.0-alpha.0");
 
   program.command("doctor").description("Check the local runtime prerequisites").action(() => {
     const result = renderDoctor();
@@ -82,12 +83,22 @@ export function createProgram(): Command {
   addSimulatedCommand(program, "diagnose");
 
   const fault = program.command("fault");
-  fault.command("clear <faultId>").action(async (faultId: string) => forward(`infraenv fault clear ${faultId}`));
+  fault.command("clear <faultId>")
+    .option("--environment <environmentId>", "clear a fault on a v0.2 Environment instance")
+    .action(async (faultId: string, options: { environment?: string }) => {
+      if (options.environment === undefined) {
+        await forward(`infraenv fault clear ${faultId}`);
+        return;
+      }
+      console.log(JSON.stringify(await clearSupervisorFault(options.environment, faultId), null, 2));
+    });
 
   program.command("debug:docker-args").description("Print the active sidecar security posture").action(() => {
     console.log("Runtime and sandbox use: --read-only --security-opt no-new-privileges:true --cap-drop ALL --pids-limit --memory --cpus --tmpfs; no privileged mode, Docker socket, or host-directory mount.");
     console.log(`Docker client: ${docker(["--version"]).stdout || "unavailable"}`);
   });
+
+  addV2Commands(program);
 
   program.configureOutput({ outputError: (message, write) => write(message) });
   return program;

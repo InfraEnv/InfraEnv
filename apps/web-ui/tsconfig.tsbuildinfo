@@ -1,1 +1,1 @@
-{"root":["./src/app.tsx","./src/main.tsx","./vite.config.ts"],"version":"5.9.3"}
+{"root":["./src/api.ts","./src/direct-course-adapter.ts","./src/types.ts","./src/app.tsx","./src/terminalpanel.tsx","./src/topologypanel.tsx","./src/main.tsx","./vite.config.ts"],"version":"5.9.3"}

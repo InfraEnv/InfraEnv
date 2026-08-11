@@ -1,4 +1,300 @@
 {
+  "accelerators": [
+    {
+      "architecture": "Ampere",
+      "disclosure": "PCIe card profile is distinct from A100 SXM; all runtime telemetry remains SIMULATED / S2.",
+      "fidelity": "exact",
+      "id": "accelerator:nvidia-a100-pcie-80gb",
+      "memory": {
+        "hbmMiB": 81920,
+        "l2MiB": 40,
+        "sharedMemoryPerSmKiB": 164,
+        "theoreticalBandwidthGBps": 1935
+      },
+      "model": "A100 PCIe 80GB",
+      "nvlink": {
+        "generation": "3",
+        "perAcceleratorBidirectionalGBps": 600
+      },
+      "sourceIds": [
+        "source:nvidia-a100-product",
+        "source:nvidia-cuda-programming-guide"
+      ],
+      "thermalDesignPowerWatts": 300,
+      "vendor": "NVIDIA",
+      "version": "1.0.0"
+    },
+    {
+      "architecture": "Ampere",
+      "disclosure": "Published specification snapshot; all runtime telemetry remains SIMULATED / S2.",
+      "fidelity": "exact",
+      "id": "accelerator:nvidia-a100-sxm-80gb",
+      "memory": {
+        "hbmMiB": 81920,
+        "l2MiB": 40,
+        "sharedMemoryPerSmKiB": 164,
+        "theoreticalBandwidthGBps": 2039
+      },
+      "model": "A100 SXM 80GB",
+      "nvlink": {
+        "generation": "3",
+        "perAcceleratorBidirectionalGBps": 600
+      },
+      "sourceIds": [
+        "source:nvidia-a100-product",
+        "source:nvidia-cuda-programming-guide"
+      ],
+      "thermalDesignPowerWatts": 400,
+      "vendor": "NVIDIA",
+      "version": "1.0.0"
+    },
+    {
+      "architecture": "Hopper",
+      "disclosure": "Published specification snapshot; all runtime telemetry remains SIMULATED / S2.",
+      "fidelity": "exact",
+      "id": "accelerator:nvidia-h100-sxm-80gb",
+      "memory": {
+        "hbmMiB": 81920,
+        "l2MiB": 50,
+        "sharedMemoryPerSmKiB": 228,
+        "theoreticalBandwidthGBps": 3350
+      },
+      "model": "H100 SXM 80GB",
+      "nvlink": {
+        "generation": "4",
+        "perAcceleratorBidirectionalGBps": 900
+      },
+      "sourceIds": [
+        "source:nvidia-dgx-h100-user-guide",
+        "source:nvidia-cuda-programming-guide"
+      ],
+      "thermalDesignPowerWatts": 700,
+      "vendor": "NVIDIA",
+      "version": "1.0.0"
+    },
+    {
+      "architecture": "Hopper",
+      "disclosure": "Published specification snapshot; all runtime telemetry remains SIMULATED / S2.",
+      "fidelity": "exact",
+      "id": "accelerator:nvidia-h200-sxm-141gb",
+      "memory": {
+        "hbmMiB": 144384,
+        "l2MiB": 50,
+        "sharedMemoryPerSmKiB": 228,
+        "theoreticalBandwidthGBps": 4800
+      },
+      "model": "H200 SXM 141GB",
+      "nvlink": {
+        "generation": "4",
+        "perAcceleratorBidirectionalGBps": 900
+      },
+      "sourceIds": [
+        "source:nvidia-dgx-h100-user-guide",
+        "source:nvidia-cuda-programming-guide"
+      ],
+      "thermalDesignPowerWatts": 700,
+      "vendor": "NVIDIA",
+      "version": "1.0.0"
+    },
+    {
+      "architecture": "Blackwell",
+      "disclosure": "Published specification snapshot; unspecified cache details are intentionally omitted. Runtime telemetry is SIMULATED / S2.",
+      "fidelity": "exact",
+      "id": "accelerator:nvidia-b200-sxm-180gb",
+      "memory": {
+        "hbmMiB": 184320,
+        "theoreticalBandwidthGBps": 8000
+      },
+      "model": "B200 SXM 180GB",
+      "nvlink": {
+        "generation": "5",
+        "perAcceleratorBidirectionalGBps": 1800
+      },
+      "sourceIds": [
+        "source:nvidia-dgx-b200-user-guide",
+        "source:nvidia-fabric-manager"
+      ],
+      "thermalDesignPowerWatts": 1000,
+      "vendor": "NVIDIA",
+      "version": "1.0.0"
+    },
+    {
+      "architecture": "Blackwell",
+      "disclosure": "Published rack-platform specification snapshot; unspecified cache and standalone-card fields are intentionally omitted. Runtime telemetry is SIMULATED / S2.",
+      "fidelity": "exact",
+      "id": "accelerator:nvidia-gb200-blackwell-192gb",
+      "memory": {
+        "hbmMiB": 196608
+      },
+      "model": "GB200 Blackwell GPU 192GB",
+      "nvlink": {
+        "generation": "5",
+        "perAcceleratorBidirectionalGBps": 1800
+      },
+      "sourceIds": [
+        "source:nvidia-gb200-hardware",
+        "source:nvidia-fabric-manager"
+      ],
+      "vendor": "NVIDIA",
+      "version": "1.0.0"
+    },
+    {
+      "architecture": "Blackwell Ultra",
+      "disclosure": "Published specification snapshot; unspecified performance fields are intentionally omitted. Runtime telemetry is SIMULATED / S2.",
+      "fidelity": "exact",
+      "id": "accelerator:nvidia-b300-sxm-288gb",
+      "memory": {
+        "hbmMiB": 294912
+      },
+      "model": "B300 SXM 288GB",
+      "nvlink": {
+        "generation": "5",
+        "perAcceleratorBidirectionalGBps": 1800
+      },
+      "sourceIds": [
+        "source:nvidia-gb300-product",
+        "source:nvidia-fabric-manager"
+      ],
+      "vendor": "NVIDIA",
+      "version": "1.0.0"
+    }
+  ],
+  "bootProfiles": [
+    {
+      "disclosure": "SIMULATED BOOT TIME: original strings and deterministic events, not firmware output or a real POST.",
+      "id": "boot:gpu-node-standard",
+      "phases": [
+        {
+          "checks": [
+            "bmc-ready",
+            "power-rails-stable"
+          ],
+          "id": "phase:power-and-bmc",
+          "label": "Power and BMC initialization",
+          "order": 1,
+          "virtualDurationMs": 900
+        },
+        {
+          "checks": [
+            "pcie-roots-present",
+            "accelerators-enumerated"
+          ],
+          "id": "phase:pcie-enumeration",
+          "label": "PCIe enumeration",
+          "order": 2,
+          "virtualDurationMs": 1100
+        },
+        {
+          "checks": [
+            "gpu-count-matches",
+            "memory-capacity-matches"
+          ],
+          "id": "phase:gpu-self-test",
+          "label": "GPU inventory and simulated self-test",
+          "order": 3,
+          "virtualDurationMs": 1300
+        },
+        {
+          "checks": [
+            "scale-up-links-ready",
+            "scale-out-links-ready"
+          ],
+          "id": "phase:fabric-training",
+          "label": "NVLink and network fabric training",
+          "order": 4,
+          "virtualDurationMs": 1500
+        },
+        {
+          "checks": [
+            "node-registered",
+            "health-ready"
+          ],
+          "id": "phase:scheduler-ready",
+          "label": "Scheduler registration",
+          "order": 5,
+          "virtualDurationMs": 700
+        }
+      ],
+      "sourceIds": [
+        "source:nvidia-smi",
+        "source:nvidia-fabric-manager"
+      ],
+      "title": "Generic GPU node boot sequence",
+      "version": "1.0.0"
+    },
+    {
+      "disclosure": "SIMULATED BOOT TIME: compressed, original InfraEnv messages; no NVIDIA firmware or production logs are executed or reproduced.",
+      "id": "boot:nvl72-rack",
+      "phases": [
+        {
+          "checks": [
+            "power-shelves-ready",
+            "management-plane-ready"
+          ],
+          "id": "phase:rack-power-and-bmc",
+          "label": "Power shelves and BMC controllers",
+          "order": 1,
+          "virtualDurationMs": 1200
+        },
+        {
+          "checks": [
+            "switch-trays-ready",
+            "nvos-ready"
+          ],
+          "id": "phase:nvswitch-trays",
+          "label": "NVSwitch trays and NVOS",
+          "order": 2,
+          "virtualDurationMs": 1700
+        },
+        {
+          "checks": [
+            "nvlink-domain-discovered",
+            "routes-installed"
+          ],
+          "id": "phase:fabric-manager",
+          "label": "Fabric Manager topology discovery",
+          "order": 3,
+          "virtualDurationMs": 1800
+        },
+        {
+          "checks": [
+            "compute-trays-ready",
+            "accelerator-count-matches"
+          ],
+          "id": "phase:compute-trays",
+          "label": "Compute trays and GPU inventory",
+          "order": 4,
+          "virtualDurationMs": 2200
+        },
+        {
+          "checks": [
+            "nvlink-links-ready",
+            "p2p-reachability-ready"
+          ],
+          "id": "phase:nvlink-validation",
+          "label": "NVLink domain validation",
+          "order": 5,
+          "virtualDurationMs": 1600
+        },
+        {
+          "checks": [
+            "scale-out-ready",
+            "scheduler-ready"
+          ],
+          "id": "phase:scale-out-and-scheduler",
+          "label": "Scale-out fabric and scheduler registration",
+          "order": 6,
+          "virtualDurationMs": 1200
+        }
+      ],
+      "sourceIds": [
+        "source:nvidia-gb200-power-sequence",
+        "source:nvidia-fabric-manager"
+      ],
+      "title": "NVL72 rack-scale boot sequence",
+      "version": "1.0.0"
+    }
+  ],
   "chapters": [
     {
       "courseId": "course:ai-infra-operations",
@@ -23,6 +319,173 @@
       "slug": "ai-infra-operations",
       "summary": "在明确标注的行为模拟集群中练习观察、定位、破坏、修复和验证。",
       "title": "AI Infra 运维与诊断"
+    }
+  ],
+  "fabrics": [
+    {
+      "bandwidthBasis": "per-direction-data-rate",
+      "disclosure": "Protocol-adjusted bandwidth and latency are analytical assumptions, not a measured PCIe link.",
+      "fidelity": "derived",
+      "generation": "4.0",
+      "id": "fabric:pcie-4-x16",
+      "modeledBaselineLatencyUs": 1.8,
+      "name": "PCI Express 4.0 x16",
+      "scope": "device",
+      "sourceIds": [
+        "source:nvidia-a100-product"
+      ],
+      "technology": "pcie",
+      "theoreticalBandwidthGbps": 252,
+      "version": "1.0.0"
+    },
+    {
+      "bandwidthBasis": "per-direction-data-rate",
+      "disclosure": "Protocol-adjusted bandwidth and latency are analytical assumptions, not a measured PCIe link.",
+      "fidelity": "derived",
+      "generation": "5.0",
+      "id": "fabric:pcie-5-x16",
+      "modeledBaselineLatencyUs": 1.5,
+      "name": "PCI Express 5.0 x16",
+      "scope": "device",
+      "sourceIds": [
+        "source:pci-sig-pcie5"
+      ],
+      "technology": "pcie",
+      "theoreticalBandwidthGbps": 504,
+      "version": "1.0.0"
+    },
+    {
+      "bandwidthBasis": "per-accelerator-bidirectional",
+      "disclosure": "The capacity is a published per-accelerator aggregate; latency is an InfraEnv model assumption.",
+      "fidelity": "exact",
+      "generation": "3",
+      "id": "fabric:nvlink-3",
+      "modeledBaselineLatencyUs": 1,
+      "name": "Third-generation NVLink",
+      "scope": "intra-node",
+      "sourceIds": [
+        "source:nvidia-a100-product"
+      ],
+      "technology": "nvlink",
+      "theoreticalBandwidthGbps": 4800,
+      "version": "1.0.0"
+    },
+    {
+      "bandwidthBasis": "per-accelerator-bidirectional",
+      "disclosure": "The capacity is a published per-accelerator aggregate; latency is an InfraEnv model assumption.",
+      "fidelity": "exact",
+      "generation": "4",
+      "id": "fabric:nvlink-4",
+      "modeledBaselineLatencyUs": 0.8,
+      "name": "Fourth-generation NVLink",
+      "scope": "intra-node",
+      "sourceIds": [
+        "source:nvidia-dgx-h100-user-guide",
+        "source:nvidia-fabric-manager"
+      ],
+      "technology": "nvlink",
+      "theoreticalBandwidthGbps": 7200,
+      "version": "1.0.0"
+    },
+    {
+      "bandwidthBasis": "per-accelerator-bidirectional",
+      "disclosure": "The capacity is a published per-accelerator aggregate; latency is an InfraEnv model assumption.",
+      "fidelity": "exact",
+      "generation": "5",
+      "id": "fabric:nvlink-5",
+      "modeledBaselineLatencyUs": 0.7,
+      "name": "Fifth-generation NVLink",
+      "scope": "intra-node",
+      "sourceIds": [
+        "source:nvidia-dgx-b200-user-guide",
+        "source:nvidia-fabric-manager"
+      ],
+      "technology": "nvlink",
+      "theoreticalBandwidthGbps": 14400,
+      "version": "1.0.0"
+    },
+    {
+      "bandwidthBasis": "per-accelerator-bidirectional",
+      "disclosure": "NVSwitch generation is distinct from NVLink generation; modeled latency is not measured telemetry.",
+      "fidelity": "exact",
+      "generation": "2",
+      "id": "fabric:nvswitch-2",
+      "modeledBaselineLatencyUs": 1.2,
+      "name": "Second-generation NVSwitch fabric",
+      "scope": "intra-node",
+      "sourceIds": [
+        "source:nvidia-dgx-a100-user-guide",
+        "source:nvidia-fabric-manager"
+      ],
+      "technology": "nvswitch",
+      "theoreticalBandwidthGbps": 4800,
+      "version": "1.0.0"
+    },
+    {
+      "bandwidthBasis": "per-accelerator-bidirectional",
+      "disclosure": "NVSwitch generation is distinct from NVLink generation; modeled latency is not measured telemetry.",
+      "fidelity": "exact",
+      "generation": "3",
+      "id": "fabric:nvswitch-3",
+      "modeledBaselineLatencyUs": 1,
+      "name": "Third-generation NVSwitch fabric",
+      "scope": "intra-node",
+      "sourceIds": [
+        "source:nvidia-dgx-h100-user-guide",
+        "source:nvidia-fabric-manager"
+      ],
+      "technology": "nvswitch",
+      "theoreticalBandwidthGbps": 7200,
+      "version": "1.0.0"
+    },
+    {
+      "bandwidthBasis": "per-accelerator-bidirectional",
+      "disclosure": "NVSwitch generation is distinct from NVLink generation; modeled latency is not measured telemetry.",
+      "fidelity": "exact",
+      "generation": "4",
+      "id": "fabric:nvswitch-4",
+      "modeledBaselineLatencyUs": 0.8,
+      "name": "Fourth-generation NVSwitch fabric",
+      "scope": "intra-node",
+      "sourceIds": [
+        "source:nvidia-dgx-b200-user-guide",
+        "source:nvidia-fabric-manager"
+      ],
+      "technology": "nvswitch",
+      "theoreticalBandwidthGbps": 14400,
+      "version": "1.0.0"
+    },
+    {
+      "bandwidthBasis": "per-direction-data-rate",
+      "disclosure": "400 Gbps is the profile data rate; modeled end-to-end latency and efficiency are not measured.",
+      "fidelity": "exact",
+      "generation": "NDR",
+      "id": "fabric:infiniband-ndr400",
+      "modeledBaselineLatencyUs": 2,
+      "name": "NVIDIA NDR400 InfiniBand",
+      "scope": "inter-rack",
+      "sourceIds": [
+        "source:nvidia-gb200-superpod"
+      ],
+      "technology": "infiniband",
+      "theoreticalBandwidthGbps": 400,
+      "version": "1.0.0"
+    },
+    {
+      "bandwidthBasis": "per-direction-data-rate",
+      "disclosure": "The profile records the published link class; modeled latency and congestion behavior are analytical.",
+      "fidelity": "exact",
+      "generation": "400G",
+      "id": "fabric:spectrum-x-ethernet-400",
+      "modeledBaselineLatencyUs": 4,
+      "name": "Spectrum-X Ethernet 400G plane",
+      "scope": "inter-rack",
+      "sourceIds": [
+        "source:nvidia-gb300-networking"
+      ],
+      "technology": "ethernet",
+      "theoreticalBandwidthGbps": 400,
+      "version": "1.0.0"
     }
   ],
   "labs": [
@@ -52,7 +515,7 @@
       },
       "scenarioRef": {
         "id": "scenario:slow-worker-bandwidth-drop",
-        "version": "1.0.0"
+        "version": "2.0.0"
       },
       "simulationLevel": "S2",
       "slug": "find-slow-worker",
@@ -231,6 +694,202 @@
       ]
     }
   ],
+  "lessonDocuments": [
+    {
+      "blocks": [
+        {
+          "children": [
+            {
+              "kind": "text",
+              "value": "同步数据并行训练的速度由最慢的参与者决定。一个节点并不需要完全宕机，只要通信链路显著降速，就足以让所有 Worker 在集合通信屏障前等待。"
+            }
+          ],
+          "kind": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "kind": "text",
+                  "value": "本课程使用真实 Ubuntu Shell，但 GPU、调度器、作业、网络和指标属于 SIMULATED / S2 行为模拟。输出用于建立因果推理能力，不代表真实 H100、NCCL 或数据中心性能。"
+                }
+              ],
+              "kind": "paragraph"
+            }
+          ],
+          "component": "Callout",
+          "kind": "component",
+          "props": {
+            "title": "模拟边界"
+          }
+        },
+        {
+          "children": [
+            {
+              "kind": "text",
+              "value": "你要建立的诊断路径"
+            }
+          ],
+          "depth": 2,
+          "kind": "heading"
+        },
+        {
+          "children": [
+            {
+              "kind": "text",
+              "value": "先确认训练任务仍在运行，再比较网络、GPU 利用率和 Step Time。不要把低 GPU 利用率直接等同于 GPU 故障：同步等待也会留下同样的表面现象。"
+            }
+          ],
+          "kind": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "kind": "text",
+                  "value": "一次可靠诊断必须同时回答三个问题：异常从何时开始、集中在哪个对象、修复后哪项指标恢复。"
+                }
+              ],
+              "kind": "paragraph"
+            }
+          ],
+          "component": "Observation",
+          "kind": "component",
+          "props": {}
+        },
+        {
+          "children": [
+            {
+              "kind": "text",
+              "value": "场景中的因果链"
+            }
+          ],
+          "depth": 2,
+          "kind": "heading"
+        },
+        {
+          "children": [
+            {
+              "kind": "text",
+              "value": "课程场景会在确定性虚拟时间触发一条慢链路。链路带宽下降会增加对应 Worker 的通信时间；同步训练中的其他 Worker 随后等待，GPU 空闲上升，Step Time 增长，最终导致全局吞吐下降。"
+            }
+          ],
+          "kind": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "kind": "text",
+                  "value": "右侧实验步骤、命令、预期观察和验证条件全部从同一份 LabDefinition 自动生成。不要只复制最终答案；按照证据顺序执行，Runtime 才能记录完整的学习轨迹。"
+                }
+              ],
+              "kind": "paragraph"
+            }
+          ],
+          "component": "LabStep",
+          "kind": "component",
+          "props": {}
+        },
+        {
+          "children": [
+            {
+              "kind": "text",
+              "value": "诊断与答案的区别"
+            }
+          ],
+          "depth": 2,
+          "kind": "heading"
+        },
+        {
+          "children": [
+            {
+              "kind": "text",
+              "value": "诊断工具只给出相关性和候选方向，不会直接暴露故障目标。你需要结合节点级网络指标和节点检查，把假设收敛到一个根因与一个目标。"
+            }
+          ],
+          "kind": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "kind": "text",
+                  "value": "如果十五个节点的 GPU 都出现空闲，而只有一个节点的网络带宽异常，应该优先更换所有 GPU，还是检查同步通信中的慢参与者？说明你的证据。"
+                }
+              ],
+              "kind": "paragraph"
+            }
+          ],
+          "component": "Quiz",
+          "kind": "component",
+          "props": {}
+        },
+        {
+          "children": [
+            {
+              "kind": "text",
+              "value": "修复必须可验证"
+            }
+          ],
+          "depth": 2,
+          "kind": "heading"
+        },
+        {
+          "children": [
+            {
+              "kind": "text",
+              "value": "清除故障并不等于任务完成。最终提交还会检查链路恢复、Step Time 回落以及故障状态；缺少任何一项，实验都不会通过。"
+            }
+          ],
+          "kind": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "kind": "text",
+                  "value": "故障注入和清除仅允许使用 Scenario 白名单中的动作。课程内容不能携带或执行任意 JavaScript、Python 与生命周期脚本。"
+                }
+              ],
+              "kind": "paragraph"
+            }
+          ],
+          "component": "FaultAction",
+          "kind": "component",
+          "props": {}
+        },
+        {
+          "children": [
+            {
+              "kind": "text",
+              "value": "下一步"
+            }
+          ],
+          "depth": 2,
+          "kind": "heading"
+        },
+        {
+          "children": [
+            {
+              "kind": "text",
+              "value": "完成实验后，尝试解释为什么 Ring 或 Tree 集合通信对慢链路的敏感方式不同，以及生产环境中还需要哪些真实证据才能排除拥塞、PCIe 降速与数据加载问题。"
+            }
+          ],
+          "kind": "paragraph"
+        }
+      ],
+      "lessonId": "lesson:find-slow-worker",
+      "locale": "zh-CN",
+      "schemaVersion": "1.0.0",
+      "sourceAsset": "mdx/lessons/find-slow-worker.zh-CN.mdx"
+    }
+  ],
   "lessons": [
     {
       "bodyAsset": "mdx/lessons/find-slow-worker.zh-CN.mdx",
@@ -266,33 +925,881 @@
     }
   ],
   "manifest": {
-    "contentVersion": "0.1.0-alpha.0",
+    "contentVersion": "0.2.0-alpha.0",
     "defaultLocale": "zh-CN",
     "integrity": {
+      "catalog/accelerators.json": "sha256-e6259162c5bae040e05ee7a8a561a3000576f8e6515e160963ffe1a3e7a5e24d",
+      "catalog/boot-profiles.json": "sha256-1bbdaa0bbc0f86b0896ce8343f11e439b63517d3939e1f95db2a9f0f10a4b9e7",
       "catalog/cases.json": "sha256-60b53435598ee8309f401b22beda9e0561cd3ed6a8ef2951e46c4f5ad6abbf57",
       "catalog/concepts.json": "sha256-7fb953db6b7bbadd159e36fd2ca7fef259942656b35073b656439ac8ef8be0f2",
+      "catalog/fabrics.json": "sha256-35e2a118704a6b9db0e5e7ac95fa6b4384e12d4c147f1a0545b3735832ca618b",
+      "catalog/presets.json": "sha256-78add338314a54a55ddcdafbea8411be3262c7fa48caa6c8823b0dcf9e89f7c6",
+      "catalog/sources.json": "sha256-a1c562159f28b3b4068a375299839ff594718388e40080637dbc7df2162df4a4",
+      "catalog/systems.json": "sha256-4fee8e1c2fcbae941e1e8135e7e51a84fdf301970a86771360724d40a806b99e",
       "catalog/tools.json": "sha256-b29b5958087cc0853e3964693829ec03300c975bb6001ff7cf72bb696e6e44c0",
       "catalog/topics.json": "sha256-82a114a48714861715b9e70e1194119f92f244b0cf3f0154918829438d2d30f8",
       "courses/ai-infra-operations/chapters/distributed-training-diagnostics.yaml": "sha256-d4626f4aef25003383b0e75f45aa80fea16f01ca8e3cb20a47aa7f154e139a95",
       "courses/ai-infra-operations/course.yaml": "sha256-1cfd9bda6c5099920b479377ad9976eb8d9d3aa69625a0d1634225d744c4368a",
       "courses/ai-infra-operations/lessons/find-slow-worker.yaml": "sha256-d8b43ce9162412feafdda604869606e3d98ba3dab0016bd28e92b21d544bd194",
-      "labs/find-slow-worker.yaml": "sha256-05b7c5af29a46882a29b8b3d0b7859f3be31fcae524fd598fb671c7f9f9207e8",
-      "LICENSE.md": "sha256-8fba940250276020b724e776bc4ac5bbb2bd1e24d514aed0878defc1a0dd2ede",
-      "manifest.yaml": "sha256-817ff4eeeb939cf7eedab8ffd80a905212fd9fd6ad9fc814a1ee3ee204785e41",
+      "labs/find-slow-worker.yaml": "sha256-96a8a732b0358702826c20764ab8904a20352b687ac7b7b3fc2a5ad1ae2dbca7",
+      "LICENSE.md": "sha256-d50cfeb4d953a158ae88713584a8c28db91c3c5b635f8d85b61f221fc18a6f81",
+      "manifest.yaml": "sha256-5bd5ec92e86eb0062fd1dca898146a45efb65f9d5f9dd90a6015c2dab02cd7ca",
       "mdx/cases/c-socket-echo.mdx": "sha256-3f550af2e40965ea08d7544488d85d7860726ec3068cdff63d56e77f25c9f5c2",
       "mdx/cases/cuda-vector-add.mdx": "sha256-216544dd9d2ff20f320adf41742891848d31bc43204adcbba55da0212e09436c",
       "mdx/cases/mpi-first-message.mdx": "sha256-76d2a1f095280de62666ed7aaf424ef6f9a7222346a1940ef224c2310e8c5b4f",
       "mdx/cases/openmp-parallel-reduction.mdx": "sha256-8e7c302dfae3107da18d3db34301451d735332158e4a0c4c4906b52fe9b9cfef",
       "mdx/cases/ring-allreduce-simulator.mdx": "sha256-0f7c057c31d275e4cd508a536bd1e3ce19071c5c324226aa9e0502c5a7da631b",
       "mdx/lessons/find-slow-worker.zh-CN.mdx": "sha256-20982f3cb9a2c89b363d575a1d781e1a09542f87ccfdf4a09ce0364454606389",
-      "scenarios/slow-worker-bandwidth-drop.v1.yaml": "sha256-4b7e265b7f02f17d38a97aab0d0c0de6313aa967b145401ff015f047ba82b75f"
+      "scenarios/slow-worker-bandwidth-drop.v2.yaml": "sha256-8ee114763fe8b1cc31b3a97835ca9903a28219316244be8c93c94540dccb56dc"
     },
-    "schemaVersion": "1.0.0",
+    "schemaVersion": "2.0.0",
     "supportedLocales": [
       "zh-CN",
       "en"
     ]
   },
+  "presets": [
+    {
+      "bootProfileRef": {
+        "id": "boot:gpu-node-standard",
+        "version": "1.0.0"
+      },
+      "disclosure": "EXACT STRUCTURE / SIMULATED / S2: two distinct A100 PCIe cards and a three-bridge NVLink connection; no real telemetry.",
+      "fabrics": [],
+      "fidelity": "exact",
+      "id": "preset:a100-pcie-pair",
+      "minRuntimeVersion": "0.2.0-alpha.0",
+      "optionalServices": [],
+      "performanceModel": {
+        "disclosure": "Modeled values are not measurements from an A100 PCIe pair.",
+        "efficiencyRange": [
+          0.72,
+          0.9
+        ],
+        "jitterPercent": 2,
+        "modelVersion": "analytical-v1"
+      },
+      "requiredCapabilities": [
+        "hierarchical-inventory-v1",
+        "deterministic-performance-v1",
+        "simulated-nvidia-smi"
+      ],
+      "seed": 1002,
+      "simulationLevel": "S2",
+      "slug": "a100-pcie-pair",
+      "sourceIds": [
+        "source:nvidia-a100-product",
+        "source:nvidia-a100-pcie-80gb-brief",
+        "source:nvidia-a100-architecture"
+      ],
+      "systemGroups": [
+        {
+          "count": 1,
+          "id": "group:a100-pcie-pair",
+          "nodeNamePattern": "node%02d",
+          "systemNamePattern": "a100-pair-%02d",
+          "systemRef": {
+            "id": "system:a100-pcie-pair",
+            "version": "1.0.0"
+          }
+        }
+      ],
+      "title": "NVIDIA A100 PCIe bridge pair",
+      "version": "1.0.0"
+    },
+    {
+      "bootProfileRef": {
+        "id": "boot:gpu-node-standard",
+        "version": "1.0.0"
+      },
+      "disclosure": "EXACT STRUCTURE / SIMULATED / S2: four A100 SXM GPUs in the published NVLink full-connect layout without NVSwitch.",
+      "fabrics": [],
+      "fidelity": "exact",
+      "id": "preset:hgx-a100-four",
+      "minRuntimeVersion": "0.2.0-alpha.0",
+      "optionalServices": [],
+      "performanceModel": {
+        "disclosure": "Modeled values are not measurements from an HGX A100 platform.",
+        "efficiencyRange": [
+          0.78,
+          0.92
+        ],
+        "jitterPercent": 2,
+        "modelVersion": "analytical-v1"
+      },
+      "requiredCapabilities": [
+        "hierarchical-inventory-v1",
+        "deterministic-performance-v1",
+        "simulated-nvidia-smi"
+      ],
+      "seed": 1004,
+      "simulationLevel": "S2",
+      "slug": "hgx-a100-four",
+      "sourceIds": [
+        "source:nvidia-a100-product",
+        "source:nvidia-a100-architecture",
+        "source:nvidia-hgx-a100-guide"
+      ],
+      "systemGroups": [
+        {
+          "count": 1,
+          "id": "group:hgx-a100-four",
+          "nodeNamePattern": "node%02d",
+          "systemNamePattern": "hgx-a100-%02d",
+          "systemRef": {
+            "id": "system:hgx-a100-four",
+            "version": "1.0.0"
+          }
+        }
+      ],
+      "title": "NVIDIA HGX A100 four-GPU platform",
+      "version": "1.0.0"
+    },
+    {
+      "bootProfileRef": {
+        "id": "boot:gpu-node-standard",
+        "version": "1.0.0"
+      },
+      "disclosure": "EXACT STRUCTURE / SIMULATED / S2: eight A100 SXM GPUs and six second-generation NVSwitch ASICs; no real telemetry.",
+      "fabrics": [],
+      "fidelity": "exact",
+      "id": "preset:dgx-hgx-a100-eight",
+      "minRuntimeVersion": "0.2.0-alpha.0",
+      "optionalServices": [],
+      "performanceModel": {
+        "disclosure": "Modeled values are not measurements from a DGX/HGX A100 platform.",
+        "efficiencyRange": [
+          0.82,
+          0.94
+        ],
+        "jitterPercent": 1.5,
+        "modelVersion": "analytical-v1"
+      },
+      "requiredCapabilities": [
+        "hierarchical-inventory-v1",
+        "deterministic-performance-v1",
+        "simulated-nvidia-smi"
+      ],
+      "seed": 1008,
+      "simulationLevel": "S2",
+      "slug": "dgx-hgx-a100-eight",
+      "sourceIds": [
+        "source:nvidia-dgx-a100-user-guide",
+        "source:nvidia-fabric-manager",
+        "source:nvidia-a100-architecture"
+      ],
+      "systemGroups": [
+        {
+          "count": 1,
+          "id": "group:dgx-a100-eight",
+          "nodeNamePattern": "node%02d",
+          "systemNamePattern": "dgx-a100-%02d",
+          "systemRef": {
+            "id": "system:dgx-hgx-a100-eight",
+            "version": "1.0.0"
+          }
+        }
+      ],
+      "title": "NVIDIA DGX A100 single node",
+      "version": "1.0.0"
+    },
+    {
+      "bootProfileRef": {
+        "id": "boot:gpu-node-standard",
+        "version": "1.0.0"
+      },
+      "disclosure": "DERIVED / SIMULATED / S2: composed from published DGX H100 and NDR400 building blocks, not an NVIDIA reference-cluster certification.",
+      "fabrics": [
+        {
+          "capacityGbps": 400,
+          "connectsGroupIds": [
+            "group:h100-compute"
+          ],
+          "fabricRef": {
+            "id": "fabric:infiniband-ndr400",
+            "version": "1.0.0"
+          },
+          "id": "fabric-instance:h100-scale-out",
+          "oversubscriptionRatio": 1,
+          "topology": "fat-tree"
+        }
+      ],
+      "fidelity": "derived",
+      "id": "preset:h100-fat-tree-16x8",
+      "minRuntimeVersion": "0.2.0-alpha.0",
+      "optionalServices": [
+        {
+          "disclosure": "Metadata and transfer timing are simulated; no real model weights or credentials are included.",
+          "enabledByDefault": false,
+          "id": "service:simulated-model-store",
+          "kind": "simulated-object-store"
+        }
+      ],
+      "performanceModel": {
+        "disclosure": "Effective values are deterministic analytical estimates below the theoretical path ceiling.",
+        "efficiencyRange": [
+          0.82,
+          0.94
+        ],
+        "jitterPercent": 2,
+        "modelVersion": "analytical-v1"
+      },
+      "requiredCapabilities": [
+        "hierarchical-inventory-v1",
+        "deterministic-performance-v1",
+        "simulated-nvidia-smi"
+      ],
+      "seed": 240803,
+      "simulationLevel": "S2",
+      "slug": "h100-fat-tree-16x8",
+      "sourceIds": [
+        "source:nvidia-dgx-h100-user-guide",
+        "source:nvidia-gb200-superpod"
+      ],
+      "systemGroups": [
+        {
+          "count": 16,
+          "id": "group:h100-compute",
+          "nodeNamePattern": "node%02d",
+          "systemNamePattern": "system%02d",
+          "systemRef": {
+            "id": "system:dgx-h100",
+            "version": "1.0.0"
+          }
+        }
+      ],
+      "title": "16-node H100 training cluster",
+      "version": "1.0.0"
+    },
+    {
+      "bootProfileRef": {
+        "id": "boot:gpu-node-standard",
+        "version": "1.0.0"
+      },
+      "disclosure": "EXACT STRUCTURE / SIMULATED / S2: published component counts are locked; state and performance remain synthetic.",
+      "fabrics": [],
+      "fidelity": "exact",
+      "id": "preset:dgx-h100-single-node",
+      "minRuntimeVersion": "0.2.0-alpha.0",
+      "optionalServices": [],
+      "performanceModel": {
+        "disclosure": "Modeled values are not measurements from a DGX H100.",
+        "efficiencyRange": [
+          0.84,
+          0.95
+        ],
+        "jitterPercent": 1.5,
+        "modelVersion": "analytical-v1"
+      },
+      "requiredCapabilities": [
+        "hierarchical-inventory-v1",
+        "deterministic-performance-v1",
+        "simulated-nvidia-smi"
+      ],
+      "seed": 1008,
+      "simulationLevel": "S2",
+      "slug": "dgx-h100-single-node",
+      "sourceIds": [
+        "source:nvidia-dgx-h100-user-guide",
+        "source:nvidia-fabric-manager"
+      ],
+      "systemGroups": [
+        {
+          "count": 1,
+          "id": "group:dgx-h100",
+          "nodeNamePattern": "node%02d",
+          "systemNamePattern": "dgx-h100-%02d",
+          "systemRef": {
+            "id": "system:dgx-h100",
+            "version": "1.0.0"
+          }
+        }
+      ],
+      "title": "NVIDIA DGX H100 single node",
+      "version": "1.0.0"
+    },
+    {
+      "bootProfileRef": {
+        "id": "boot:gpu-node-standard",
+        "version": "1.0.0"
+      },
+      "disclosure": "EXACT STRUCTURE / SIMULATED / S2: published component counts are locked; state and performance remain synthetic.",
+      "fabrics": [],
+      "fidelity": "exact",
+      "id": "preset:dgx-b200-single-node",
+      "minRuntimeVersion": "0.2.0-alpha.0",
+      "optionalServices": [],
+      "performanceModel": {
+        "disclosure": "Modeled values are not measurements from a DGX B200.",
+        "efficiencyRange": [
+          0.84,
+          0.95
+        ],
+        "jitterPercent": 1.5,
+        "modelVersion": "analytical-v1"
+      },
+      "requiredCapabilities": [
+        "hierarchical-inventory-v1",
+        "deterministic-performance-v1",
+        "simulated-nvidia-smi"
+      ],
+      "seed": 2008,
+      "simulationLevel": "S2",
+      "slug": "dgx-b200-single-node",
+      "sourceIds": [
+        "source:nvidia-dgx-b200-user-guide",
+        "source:nvidia-fabric-manager"
+      ],
+      "systemGroups": [
+        {
+          "count": 1,
+          "id": "group:dgx-b200",
+          "nodeNamePattern": "node%02d",
+          "systemNamePattern": "dgx-b200-%02d",
+          "systemRef": {
+            "id": "system:dgx-b200",
+            "version": "1.0.0"
+          }
+        }
+      ],
+      "title": "NVIDIA DGX B200 single node",
+      "version": "1.0.0"
+    },
+    {
+      "bootProfileRef": {
+        "id": "boot:nvl72-rack",
+        "version": "1.0.0"
+      },
+      "disclosure": "EXACT STRUCTURE / SIMULATED / S2: one 72-GPU NVLink domain; no real NVOS, Fabric Manager or hardware telemetry.",
+      "fabrics": [],
+      "fidelity": "exact",
+      "id": "preset:gb200-nvl72-single-rack",
+      "minRuntimeVersion": "0.2.0-alpha.0",
+      "optionalServices": [],
+      "performanceModel": {
+        "disclosure": "Modeled values are not measurements from a GB200 NVL72.",
+        "efficiencyRange": [
+          0.82,
+          0.94
+        ],
+        "jitterPercent": 1.5,
+        "modelVersion": "analytical-v1"
+      },
+      "requiredCapabilities": [
+        "hierarchical-inventory-v1",
+        "rack-scale-nvlink-domain-v1",
+        "deterministic-performance-v1"
+      ],
+      "seed": 20072,
+      "simulationLevel": "S2",
+      "slug": "gb200-nvl72-single-rack",
+      "sourceIds": [
+        "source:nvidia-gb200-hardware",
+        "source:nvidia-fabric-manager",
+        "source:nvidia-gb200-power-sequence"
+      ],
+      "systemGroups": [
+        {
+          "count": 1,
+          "id": "group:gb200-rack",
+          "nodeNamePattern": "rack%02d-node%02d",
+          "systemNamePattern": "rack%02d",
+          "systemRef": {
+            "id": "system:gb200-nvl72",
+            "version": "1.0.0"
+          }
+        }
+      ],
+      "title": "NVIDIA GB200 NVL72 single rack",
+      "version": "1.0.0"
+    },
+    {
+      "bootProfileRef": {
+        "id": "boot:nvl72-rack",
+        "version": "1.0.0"
+      },
+      "disclosure": "EXACT STRUCTURE / SIMULATED / S2: one 72-GPU NVLink domain; no real NVOS, Fabric Manager or hardware telemetry.",
+      "fabrics": [],
+      "fidelity": "exact",
+      "id": "preset:gb300-nvl72-single-rack",
+      "minRuntimeVersion": "0.2.0-alpha.0",
+      "optionalServices": [],
+      "performanceModel": {
+        "disclosure": "Modeled values are not measurements from a GB300 NVL72.",
+        "efficiencyRange": [
+          0.82,
+          0.94
+        ],
+        "jitterPercent": 1.5,
+        "modelVersion": "analytical-v1"
+      },
+      "requiredCapabilities": [
+        "hierarchical-inventory-v1",
+        "rack-scale-nvlink-domain-v1",
+        "deterministic-performance-v1"
+      ],
+      "seed": 30072,
+      "simulationLevel": "S2",
+      "slug": "gb300-nvl72-single-rack",
+      "sourceIds": [
+        "source:nvidia-gb300-product",
+        "source:nvidia-gb200-hardware",
+        "source:nvidia-gb300-networking",
+        "source:nvidia-fabric-manager"
+      ],
+      "systemGroups": [
+        {
+          "count": 1,
+          "id": "group:gb300-rack",
+          "nodeNamePattern": "rack%02d-node%02d",
+          "systemNamePattern": "rack%02d",
+          "systemRef": {
+            "id": "system:gb300-nvl72",
+            "version": "1.0.0"
+          }
+        }
+      ],
+      "title": "NVIDIA GB300 NVL72 single rack",
+      "version": "1.0.0"
+    },
+    {
+      "bootProfileRef": {
+        "id": "boot:nvl72-rack",
+        "version": "1.0.0"
+      },
+      "disclosure": "EXACT REFERENCE STRUCTURE / SIMULATED / S2: eight independent 72-GPU NVLink domains joined by modeled NDR400 scale-out fabric.",
+      "fabrics": [
+        {
+          "capacityGbps": 400,
+          "connectsGroupIds": [
+            "group:gb200-superpod-racks"
+          ],
+          "fabricRef": {
+            "id": "fabric:infiniband-ndr400",
+            "version": "1.0.0"
+          },
+          "id": "fabric-instance:gb200-superpod-compute",
+          "oversubscriptionRatio": 1,
+          "topology": "rail-optimized"
+        }
+      ],
+      "fidelity": "exact",
+      "id": "preset:gb200-superpod-eight-rack",
+      "minRuntimeVersion": "0.2.0-alpha.0",
+      "optionalServices": [
+        {
+          "disclosure": "Metadata and transfer timing are simulated; no real model weights or credentials are included.",
+          "enabledByDefault": false,
+          "id": "service:simulated-model-store",
+          "kind": "simulated-object-store"
+        }
+      ],
+      "performanceModel": {
+        "disclosure": "Scale-out behavior is a deterministic analytical model, not a SuperPOD benchmark.",
+        "efficiencyRange": [
+          0.78,
+          0.92
+        ],
+        "jitterPercent": 2,
+        "modelVersion": "analytical-v1"
+      },
+      "requiredCapabilities": [
+        "hierarchical-inventory-v1",
+        "rack-scale-nvlink-domain-v1",
+        "rail-optimized-fabric-v1",
+        "deterministic-performance-v1"
+      ],
+      "seed": 200576,
+      "simulationLevel": "S2",
+      "slug": "gb200-superpod-eight-rack",
+      "sourceIds": [
+        "source:nvidia-gb200-superpod",
+        "source:nvidia-gb200-hardware"
+      ],
+      "systemGroups": [
+        {
+          "count": 8,
+          "id": "group:gb200-superpod-racks",
+          "nodeNamePattern": "rack%02d-node%02d",
+          "systemNamePattern": "rack%02d",
+          "systemRef": {
+            "id": "system:gb200-nvl72",
+            "version": "1.0.0"
+          }
+        }
+      ],
+      "title": "GB200 NVL72 eight-rack scalable unit",
+      "version": "1.0.0"
+    },
+    {
+      "bootProfileRef": {
+        "id": "boot:nvl72-rack",
+        "version": "1.0.0"
+      },
+      "disclosure": "EXACT REFERENCE STRUCTURE / SIMULATED / S2: two independent NVL72 domains with modeled dual-plane scale-out networking.",
+      "fabrics": [
+        {
+          "capacityGbps": 400,
+          "connectsGroupIds": [
+            "group:gb300-two-racks"
+          ],
+          "fabricRef": {
+            "id": "fabric:spectrum-x-ethernet-400",
+            "version": "1.0.0"
+          },
+          "id": "fabric-instance:gb300-two-plane-a",
+          "oversubscriptionRatio": 1,
+          "topology": "rail-optimized"
+        },
+        {
+          "capacityGbps": 400,
+          "connectsGroupIds": [
+            "group:gb300-two-racks"
+          ],
+          "fabricRef": {
+            "id": "fabric:spectrum-x-ethernet-400",
+            "version": "1.0.0"
+          },
+          "id": "fabric-instance:gb300-two-plane-b",
+          "oversubscriptionRatio": 1,
+          "topology": "rail-optimized"
+        }
+      ],
+      "fidelity": "exact",
+      "id": "preset:gb300-two-rack",
+      "minRuntimeVersion": "0.2.0-alpha.0",
+      "optionalServices": [],
+      "performanceModel": {
+        "disclosure": "Dual-plane behavior is a deterministic analytical model, not a production benchmark.",
+        "efficiencyRange": [
+          0.78,
+          0.92
+        ],
+        "jitterPercent": 2,
+        "modelVersion": "analytical-v1"
+      },
+      "requiredCapabilities": [
+        "hierarchical-inventory-v1",
+        "rack-scale-nvlink-domain-v1",
+        "dual-plane-fabric-v1",
+        "deterministic-performance-v1"
+      ],
+      "seed": 300144,
+      "simulationLevel": "S2",
+      "slug": "gb300-two-rack",
+      "sourceIds": [
+        "source:nvidia-gb300-networking",
+        "source:nvidia-gb300-product"
+      ],
+      "systemGroups": [
+        {
+          "count": 2,
+          "id": "group:gb300-two-racks",
+          "nodeNamePattern": "rack%02d-node%02d",
+          "systemNamePattern": "rack%02d",
+          "systemRef": {
+            "id": "system:gb300-nvl72",
+            "version": "1.0.0"
+          }
+        }
+      ],
+      "title": "GB300 NVL72 two-rack dual-plane layout",
+      "version": "1.0.0"
+    },
+    {
+      "bootProfileRef": {
+        "id": "boot:nvl72-rack",
+        "version": "1.0.0"
+      },
+      "disclosure": "EXACT REFERENCE STRUCTURE / SIMULATED / S2: four independent NVL72 domains with modeled dual-plane scale-out networking.",
+      "fabrics": [
+        {
+          "capacityGbps": 400,
+          "connectsGroupIds": [
+            "group:gb300-four-racks"
+          ],
+          "fabricRef": {
+            "id": "fabric:spectrum-x-ethernet-400",
+            "version": "1.0.0"
+          },
+          "id": "fabric-instance:gb300-compute-plane-a",
+          "oversubscriptionRatio": 1,
+          "topology": "rail-optimized"
+        },
+        {
+          "capacityGbps": 400,
+          "connectsGroupIds": [
+            "group:gb300-four-racks"
+          ],
+          "fabricRef": {
+            "id": "fabric:spectrum-x-ethernet-400",
+            "version": "1.0.0"
+          },
+          "id": "fabric-instance:gb300-compute-plane-b",
+          "oversubscriptionRatio": 1,
+          "topology": "rail-optimized"
+        }
+      ],
+      "fidelity": "exact",
+      "id": "preset:gb300-four-rack",
+      "minRuntimeVersion": "0.2.0-alpha.0",
+      "optionalServices": [],
+      "performanceModel": {
+        "disclosure": "Dual-plane behavior is a deterministic analytical model, not a production benchmark.",
+        "efficiencyRange": [
+          0.78,
+          0.92
+        ],
+        "jitterPercent": 2,
+        "modelVersion": "analytical-v1"
+      },
+      "requiredCapabilities": [
+        "hierarchical-inventory-v1",
+        "rack-scale-nvlink-domain-v1",
+        "dual-plane-fabric-v1",
+        "deterministic-performance-v1"
+      ],
+      "seed": 300288,
+      "simulationLevel": "S2",
+      "slug": "gb300-four-rack",
+      "sourceIds": [
+        "source:nvidia-gb300-networking",
+        "source:nvidia-gb300-product"
+      ],
+      "systemGroups": [
+        {
+          "count": 4,
+          "id": "group:gb300-four-racks",
+          "nodeNamePattern": "rack%02d-node%02d",
+          "systemNamePattern": "rack%02d",
+          "systemRef": {
+            "id": "system:gb300-nvl72",
+            "version": "1.0.0"
+          }
+        }
+      ],
+      "title": "GB300 NVL72 four-rack dual-plane layout",
+      "version": "1.0.0"
+    },
+    {
+      "bootProfileRef": {
+        "id": "boot:nvl72-rack",
+        "version": "1.0.0"
+      },
+      "disclosure": "EXACT REFERENCE STRUCTURE / SIMULATED / S2: eight independent NVL72 domains with modeled dual-plane scale-out networking.",
+      "fabrics": [
+        {
+          "capacityGbps": 400,
+          "connectsGroupIds": [
+            "group:gb300-eight-racks"
+          ],
+          "fabricRef": {
+            "id": "fabric:spectrum-x-ethernet-400",
+            "version": "1.0.0"
+          },
+          "id": "fabric-instance:gb300-eight-plane-a",
+          "oversubscriptionRatio": 1,
+          "topology": "rail-optimized"
+        },
+        {
+          "capacityGbps": 400,
+          "connectsGroupIds": [
+            "group:gb300-eight-racks"
+          ],
+          "fabricRef": {
+            "id": "fabric:spectrum-x-ethernet-400",
+            "version": "1.0.0"
+          },
+          "id": "fabric-instance:gb300-eight-plane-b",
+          "oversubscriptionRatio": 1,
+          "topology": "rail-optimized"
+        }
+      ],
+      "fidelity": "exact",
+      "id": "preset:gb300-eight-rack",
+      "minRuntimeVersion": "0.2.0-alpha.0",
+      "optionalServices": [
+        {
+          "disclosure": "Metadata and transfer timing are simulated; no real model weights or credentials are included.",
+          "enabledByDefault": false,
+          "id": "service:simulated-model-store",
+          "kind": "simulated-object-store"
+        }
+      ],
+      "performanceModel": {
+        "disclosure": "Dual-plane behavior is a deterministic analytical model, not a production benchmark.",
+        "efficiencyRange": [
+          0.76,
+          0.9
+        ],
+        "jitterPercent": 2.5,
+        "modelVersion": "analytical-v1"
+      },
+      "requiredCapabilities": [
+        "hierarchical-inventory-v1",
+        "rack-scale-nvlink-domain-v1",
+        "dual-plane-fabric-v1",
+        "deterministic-performance-v1"
+      ],
+      "seed": 300576,
+      "simulationLevel": "S2",
+      "slug": "gb300-eight-rack",
+      "sourceIds": [
+        "source:nvidia-gb300-networking",
+        "source:nvidia-gb300-product"
+      ],
+      "systemGroups": [
+        {
+          "count": 8,
+          "id": "group:gb300-eight-racks",
+          "nodeNamePattern": "rack%02d-node%02d",
+          "systemNamePattern": "rack%02d",
+          "systemRef": {
+            "id": "system:gb300-nvl72",
+            "version": "1.0.0"
+          }
+        }
+      ],
+      "title": "GB300 NVL72 eight-rack dual-plane layout",
+      "version": "1.0.0"
+    },
+    {
+      "bootProfileRef": {
+        "id": "boot:nvl72-rack",
+        "version": "1.0.0"
+      },
+      "disclosure": "DERIVED / SIMULATED / S2: sixteen racks are composed from exact NVL72 building blocks but are not labeled as an NVIDIA reference layout.",
+      "fabrics": [
+        {
+          "capacityGbps": 400,
+          "connectsGroupIds": [
+            "group:gb300-sixteen-racks"
+          ],
+          "fabricRef": {
+            "id": "fabric:spectrum-x-ethernet-400",
+            "version": "1.0.0"
+          },
+          "id": "fabric-instance:gb300-sixteen-plane-a",
+          "oversubscriptionRatio": 2,
+          "topology": "rail-optimized"
+        },
+        {
+          "capacityGbps": 400,
+          "connectsGroupIds": [
+            "group:gb300-sixteen-racks"
+          ],
+          "fabricRef": {
+            "id": "fabric:spectrum-x-ethernet-400",
+            "version": "1.0.0"
+          },
+          "id": "fabric-instance:gb300-sixteen-plane-b",
+          "oversubscriptionRatio": 2,
+          "topology": "rail-optimized"
+        }
+      ],
+      "fidelity": "derived",
+      "id": "preset:gb300-sixteen-rack-derived",
+      "minRuntimeVersion": "0.2.0-alpha.0",
+      "optionalServices": [
+        {
+          "disclosure": "Metadata and transfer timing are simulated; no real model weights or credentials are included.",
+          "enabledByDefault": false,
+          "id": "service:simulated-model-store",
+          "kind": "simulated-object-store"
+        }
+      ],
+      "performanceModel": {
+        "disclosure": "Sixteen-rack behavior extrapolates from smaller published layouts and is not a reference benchmark.",
+        "efficiencyRange": [
+          0.7,
+          0.87
+        ],
+        "jitterPercent": 3,
+        "modelVersion": "analytical-v1"
+      },
+      "requiredCapabilities": [
+        "hierarchical-inventory-v1",
+        "rack-scale-nvlink-domain-v1",
+        "dual-plane-fabric-v1",
+        "deterministic-performance-v1"
+      ],
+      "seed": 301152,
+      "simulationLevel": "S2",
+      "slug": "gb300-sixteen-rack-derived",
+      "sourceIds": [
+        "source:nvidia-gb300-networking",
+        "source:nvidia-gb300-product"
+      ],
+      "systemGroups": [
+        {
+          "count": 16,
+          "id": "group:gb300-sixteen-racks",
+          "nodeNamePattern": "rack%02d-node%02d",
+          "systemNamePattern": "rack%02d",
+          "systemRef": {
+            "id": "system:gb300-nvl72",
+            "version": "1.0.0"
+          }
+        }
+      ],
+      "title": "GB300 NVL72 sixteen-rack derived cluster",
+      "version": "1.0.0"
+    },
+    {
+      "bootProfileRef": {
+        "id": "boot:gpu-node-standard",
+        "version": "1.0.0"
+      },
+      "disclosure": "FREEFORM / USER-COMPOSABLE / SIMULATED / S2: uses an H100 SXM-derived fact profile on a PCIe-only graph; it is not an H100 PCIe card profile, NVIDIA reference system or physically validated design.",
+      "fabrics": [],
+      "fidelity": "freeform",
+      "id": "preset:freeform-four-h100-pcie",
+      "minRuntimeVersion": "0.2.0-alpha.0",
+      "optionalServices": [
+        {
+          "disclosure": "Metadata and transfer timing are simulated; no real model weights or credentials are included.",
+          "enabledByDefault": false,
+          "id": "service:simulated-model-store",
+          "kind": "simulated-object-store"
+        }
+      ],
+      "performanceModel": {
+        "disclosure": "Freeform topology values are hypotheses for exploration, not compatibility or performance claims.",
+        "efficiencyRange": [
+          0.65,
+          0.88
+        ],
+        "jitterPercent": 3,
+        "modelVersion": "analytical-v1"
+      },
+      "requiredCapabilities": [
+        "hierarchical-inventory-v1",
+        "deterministic-performance-v1",
+        "playground-editing-v1"
+      ],
+      "seed": 4004,
+      "simulationLevel": "S2",
+      "slug": "freeform-four-h100-pcie",
+      "sourceIds": [
+        "source:nvidia-dgx-h100-user-guide",
+        "source:pci-sig-pcie5"
+      ],
+      "systemGroups": [
+        {
+          "count": 1,
+          "id": "group:freeform-node",
+          "nodeNamePattern": "node%02d",
+          "systemNamePattern": "freeform%02d",
+          "systemRef": {
+            "id": "system:freeform-h100-pcie-four",
+            "version": "1.0.0"
+          }
+        }
+      ],
+      "title": "Freeform four-GPU PCIe-only playground (H100 SXM-derived)",
+      "version": "1.0.0"
+    }
+  ],
   "scenarios": [
     {
       "causalModel": [
@@ -323,16 +1830,6 @@
         }
       ],
       "clock": "deterministic-virtual",
-      "cluster": {
-        "baselineNetworkGbps": 400,
-        "disclosure": "Logical cluster state and metrics are SIMULATED / S2 and are not measurements of real NVIDIA hardware.",
-        "gpuModel": "NVIDIA H100 SXM (SIMULATED)",
-        "gpusPerNode": 8,
-        "nodeCount": 16,
-        "nodeNamePattern": "node%02d",
-        "topology": "fat-tree",
-        "totalGpuCount": 128
-      },
       "events": [
         {
           "atSeconds": 40,
@@ -359,17 +1856,488 @@
         "nodeCount": 16,
         "workersPerNode": 8
       },
-      "minRuntimeVersion": "0.1.0-alpha.0",
+      "minRuntimeVersion": "0.2.0-alpha.0",
+      "patches": [],
+      "presetRef": {
+        "id": "preset:h100-fat-tree-16x8",
+        "version": "1.0.0"
+      },
       "requiredCapabilities": [
         "deterministic-clock",
         "simulated-nvidia-smi",
         "simulated-slurm",
         "causal-metrics-v1",
-        "declarative-validator-v1"
+        "declarative-validator-v1",
+        "preset-scenario-v2"
       ],
       "seed": 240803,
       "simulationLevel": "S2",
       "title": "Node03 bandwidth degradation during synchronous training",
+      "version": "2.0.0"
+    }
+  ],
+  "sources": [
+    {
+      "id": "source:nvidia-a100-product",
+      "note": "Public product specifications used for A100 memory and NVLink facts.",
+      "publisher": "NVIDIA",
+      "sourceType": "official",
+      "title": "NVIDIA A100 Tensor Core GPU",
+      "url": "https://www.nvidia.com/en-us/data-center/a100/",
+      "verifiedAt": "2026-08-11"
+    },
+    {
+      "id": "source:nvidia-a100-pcie-80gb-brief",
+      "note": "A100 80GB PCIe two-card topology, three physical NVLink bridge assemblies and 600 GB/s aggregate bridge bandwidth.",
+      "publisher": "NVIDIA",
+      "sourceType": "official",
+      "title": "NVIDIA A100 80GB PCIe GPU Product Brief",
+      "url": "https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/a100/pdf/PB-10577-001_v02.pdf",
+      "verifiedAt": "2026-08-11"
+    },
+    {
+      "id": "source:nvidia-a100-architecture",
+      "note": "A100 implements twelve third-generation NVLink links per accelerator.",
+      "publisher": "NVIDIA",
+      "sourceType": "official",
+      "title": "NVIDIA Ampere Architecture In-Depth",
+      "url": "https://developer.nvidia.com/blog/nvidia-ampere-architecture-in-depth/",
+      "verifiedAt": "2026-08-11"
+    },
+    {
+      "id": "source:nvidia-hgx-a100-guide",
+      "note": "HGX A100 four-GPU full NVLink interconnect and eight-GPU NVSwitch platform boundaries.",
+      "publisher": "NVIDIA",
+      "sourceType": "official",
+      "title": "NVIDIA HGX A100 Software User Guide",
+      "url": "https://docs.nvidia.com/datacenter/tesla/hgx-software-guide/index.html",
+      "verifiedAt": "2026-08-11"
+    },
+    {
+      "id": "source:nvidia-dgx-h100-user-guide",
+      "note": "DGX H100/H200 accelerator count, NVSwitch count, memory and NVLink platform facts.",
+      "publisher": "NVIDIA",
+      "sourceType": "official",
+      "title": "NVIDIA DGX H100/H200 User Guide - Introduction",
+      "url": "https://docs.nvidia.com/dgx/dgxh100-user-guide/introduction-to-dgxh100.html",
+      "verifiedAt": "2026-08-11"
+    },
+    {
+      "id": "source:nvidia-dgx-a100-user-guide",
+      "note": "DGX A100 eight-GPU and six-NVSwitch platform structure.",
+      "publisher": "NVIDIA",
+      "sourceType": "official",
+      "title": "NVIDIA DGX A100 User Guide - Introduction",
+      "url": "https://docs.nvidia.com/dgx/dgxa100-user-guide/introduction-to-dgxa100.html",
+      "verifiedAt": "2026-08-11"
+    },
+    {
+      "id": "source:nvidia-dgx-b200-user-guide",
+      "note": "DGX B200 accelerator, memory, NVSwitch and aggregate interconnect facts.",
+      "publisher": "NVIDIA",
+      "sourceType": "official",
+      "title": "NVIDIA DGX B200 User Guide - Introduction",
+      "url": "https://docs.nvidia.com/dgx/dgxb200-user-guide/introduction-to-dgxb200.html",
+      "verifiedAt": "2026-08-11"
+    },
+    {
+      "id": "source:nvidia-gb200-hardware",
+      "note": "GB200 and GB300 NVL72 compute-tray, NVSwitch-tray and rack-scale hardware hierarchy.",
+      "publisher": "NVIDIA",
+      "sourceType": "official",
+      "title": "NVIDIA DGX GB Rack Scale Systems User Guide - Hardware",
+      "url": "https://docs.nvidia.com/dgx/dgxgb200-user-guide/hardware.html",
+      "verifiedAt": "2026-08-11"
+    },
+    {
+      "id": "source:nvidia-gb300-product",
+      "note": "GB300 NVL72 public accelerator memory and rack-scale platform facts.",
+      "publisher": "NVIDIA",
+      "sourceType": "official",
+      "title": "NVIDIA GB300 NVL72",
+      "url": "https://www.nvidia.com/en-gb/data-center/gb300-nvl72/",
+      "verifiedAt": "2026-08-11"
+    },
+    {
+      "id": "source:nvidia-gb200-superpod",
+      "note": "Eight-rack scalable-unit and NDR400 scale-out reference architecture facts.",
+      "publisher": "NVIDIA",
+      "sourceType": "official",
+      "title": "DGX SuperPOD with GB200 NVL72 - Components",
+      "url": "https://docs.nvidia.com/dgx-superpod/reference-architecture-scalable-infrastructure-gb200/latest/dgx-superpod-components.html",
+      "verifiedAt": "2026-08-11"
+    },
+    {
+      "id": "source:nvidia-gb300-networking",
+      "note": "Published one-, two-, four- and eight-rack dual-plane network layouts.",
+      "publisher": "NVIDIA",
+      "sourceType": "official",
+      "title": "GB300 NVL72 AI Factory - Network Logical Architecture",
+      "url": "https://docs.nvidia.com/enterprise-reference-architectures/nvl72-ai-factory/latest/network-logical-architecture.html",
+      "verifiedAt": "2026-08-11"
+    },
+    {
+      "id": "source:nvidia-fabric-manager",
+      "note": "NVLink and NVSwitch generation terminology and fabric-management boundaries.",
+      "publisher": "NVIDIA",
+      "sourceType": "official",
+      "title": "NVIDIA Fabric Manager User Guide",
+      "url": "https://docs.nvidia.com/hgx-platforms/fabric-manager-user-guide/index.html",
+      "verifiedAt": "2026-08-11"
+    },
+    {
+      "id": "source:nvidia-smi",
+      "note": "Topology labels and NVLink data-rate semantics used by the simulated CLI dialect.",
+      "publisher": "NVIDIA",
+      "sourceType": "official",
+      "title": "NVIDIA System Management Interface Documentation",
+      "url": "https://docs.nvidia.com/deploy/nvidia-smi/index.html",
+      "verifiedAt": "2026-08-11"
+    },
+    {
+      "id": "source:nvidia-cuda-programming-guide",
+      "note": "Memory-hierarchy terminology, including per-SM shared memory and GPU-wide L2.",
+      "publisher": "NVIDIA",
+      "sourceType": "official",
+      "title": "CUDA Programming Guide - Programming Model",
+      "url": "https://docs.nvidia.com/cuda/cuda-programming-guide/01-introduction/programming-model.html",
+      "verifiedAt": "2026-08-11"
+    },
+    {
+      "id": "source:nvidia-gb200-power-sequence",
+      "note": "Rack startup ordering used to author the simulated boot profile.",
+      "publisher": "NVIDIA",
+      "sourceType": "official",
+      "title": "GB200 NVL72 Rack Power On and Power Off",
+      "url": "https://docs.nvidia.com/dgx/dgxgb200-user-guide/control-config.html",
+      "verifiedAt": "2026-08-11"
+    },
+    {
+      "id": "source:pci-sig-pcie5",
+      "note": "PCIe 5.0 line-rate basis; InfraEnv models protocol overhead explicitly.",
+      "publisher": "PCI-SIG",
+      "sourceType": "official",
+      "title": "PCI Express 5.0 Supported Bit Rates",
+      "url": "https://pcisig.com/what-bit-rates-does-pcie-50-specification-support-and-how-does-it-compare-prior-pcie-generations",
+      "verifiedAt": "2026-08-11"
+    }
+  ],
+  "systems": [
+    {
+      "acceleratorRef": {
+        "id": "accelerator:nvidia-a100-pcie-80gb",
+        "version": "1.0.0"
+      },
+      "disclosure": "EXACT published three-bridge pair structure; runtime state and performance are SIMULATED / S2.",
+      "fidelity": "exact",
+      "formFactor": "node",
+      "id": "system:a100-pcie-pair",
+      "intraSystemFabricRefs": [
+        {
+          "id": "fabric:pcie-4-x16",
+          "version": "1.0.0"
+        },
+        {
+          "id": "fabric:nvlink-3",
+          "version": "1.0.0"
+        }
+      ],
+      "name": "NVIDIA A100 PCIe bridge pair",
+      "sourceIds": [
+        "source:nvidia-a100-product",
+        "source:nvidia-a100-pcie-80gb-brief",
+        "source:nvidia-a100-architecture"
+      ],
+      "structure": {
+        "acceleratorsPerComputeUnit": 2,
+        "computeUnitCount": 1,
+        "intraSystemTopology": "nvlink-bridge-pair",
+        "nvlinkBridgeAssembliesPerAccelerator": 3,
+        "nvlinkDomainSize": 2,
+        "nvlinkLinksPerAccelerator": 12,
+        "switchesPerSwitchUnit": 0,
+        "switchUnitCount": 0
+      },
+      "version": "1.0.0"
+    },
+    {
+      "acceleratorRef": {
+        "id": "accelerator:nvidia-a100-sxm-80gb",
+        "version": "1.0.0"
+      },
+      "disclosure": "EXACT published four-GPU fully connected NVLink structure without NVSwitch; runtime values are SIMULATED / S2.",
+      "fidelity": "exact",
+      "formFactor": "chassis",
+      "id": "system:hgx-a100-four",
+      "intraSystemFabricRefs": [
+        {
+          "id": "fabric:nvlink-3",
+          "version": "1.0.0"
+        }
+      ],
+      "name": "NVIDIA HGX A100 four-GPU platform",
+      "sourceIds": [
+        "source:nvidia-a100-product",
+        "source:nvidia-a100-architecture",
+        "source:nvidia-hgx-a100-guide"
+      ],
+      "structure": {
+        "acceleratorsPerComputeUnit": 4,
+        "computeUnitCount": 1,
+        "intraSystemTopology": "nvlink-full-mesh",
+        "nvlinkDomainSize": 4,
+        "nvlinkLinksPerAccelerator": 12,
+        "switchesPerSwitchUnit": 0,
+        "switchUnitCount": 0
+      },
+      "version": "1.0.0"
+    },
+    {
+      "acceleratorRef": {
+        "id": "accelerator:nvidia-a100-sxm-80gb",
+        "version": "1.0.0"
+      },
+      "cpuSocketsPerComputeUnit": 2,
+      "disclosure": "EXACT published eight-GPU, six-NVSwitch structure; runtime values are SIMULATED / S2.",
+      "fidelity": "exact",
+      "formFactor": "node",
+      "id": "system:dgx-hgx-a100-eight",
+      "intraSystemFabricRefs": [
+        {
+          "id": "fabric:nvlink-3",
+          "version": "1.0.0"
+        },
+        {
+          "id": "fabric:nvswitch-2",
+          "version": "1.0.0"
+        }
+      ],
+      "name": "NVIDIA DGX A100 single node",
+      "sourceIds": [
+        "source:nvidia-dgx-a100-user-guide",
+        "source:nvidia-fabric-manager",
+        "source:nvidia-a100-architecture"
+      ],
+      "structure": {
+        "acceleratorsPerComputeUnit": 8,
+        "computeUnitCount": 1,
+        "intraSystemTopology": "nvswitch",
+        "nvlinkDomainSize": 8,
+        "nvlinkLinksPerAccelerator": 12,
+        "switchesPerSwitchUnit": 6,
+        "switchUnitCount": 1
+      },
+      "version": "1.0.0"
+    },
+    {
+      "acceleratorRef": {
+        "id": "accelerator:nvidia-h100-sxm-80gb",
+        "version": "1.0.0"
+      },
+      "cpuSocketsPerComputeUnit": 2,
+      "disclosure": "Structural profile follows the published DGX platform; emitted state and performance are SIMULATED / S2.",
+      "fidelity": "exact",
+      "formFactor": "node",
+      "hostMemoryMiBPerComputeUnit": 2097152,
+      "id": "system:dgx-h100",
+      "intraSystemFabricRefs": [
+        {
+          "id": "fabric:nvlink-4",
+          "version": "1.0.0"
+        },
+        {
+          "id": "fabric:nvswitch-3",
+          "version": "1.0.0"
+        }
+      ],
+      "name": "NVIDIA DGX H100",
+      "sourceIds": [
+        "source:nvidia-dgx-h100-user-guide",
+        "source:nvidia-fabric-manager"
+      ],
+      "structure": {
+        "acceleratorsPerComputeUnit": 8,
+        "computeUnitCount": 1,
+        "intraSystemTopology": "nvswitch",
+        "nvlinkDomainSize": 8,
+        "switchesPerSwitchUnit": 4,
+        "switchUnitCount": 1
+      },
+      "version": "1.0.0"
+    },
+    {
+      "acceleratorRef": {
+        "id": "accelerator:nvidia-h200-sxm-141gb",
+        "version": "1.0.0"
+      },
+      "cpuSocketsPerComputeUnit": 2,
+      "disclosure": "Structural profile follows the published DGX platform; emitted state and performance are SIMULATED / S2.",
+      "fidelity": "exact",
+      "formFactor": "node",
+      "hostMemoryMiBPerComputeUnit": 2097152,
+      "id": "system:dgx-h200",
+      "intraSystemFabricRefs": [
+        {
+          "id": "fabric:nvlink-4",
+          "version": "1.0.0"
+        },
+        {
+          "id": "fabric:nvswitch-3",
+          "version": "1.0.0"
+        }
+      ],
+      "name": "NVIDIA DGX H200",
+      "sourceIds": [
+        "source:nvidia-dgx-h100-user-guide",
+        "source:nvidia-fabric-manager"
+      ],
+      "structure": {
+        "acceleratorsPerComputeUnit": 8,
+        "computeUnitCount": 1,
+        "intraSystemTopology": "nvswitch",
+        "nvlinkDomainSize": 8,
+        "switchesPerSwitchUnit": 4,
+        "switchUnitCount": 1
+      },
+      "version": "1.0.0"
+    },
+    {
+      "acceleratorRef": {
+        "id": "accelerator:nvidia-b200-sxm-180gb",
+        "version": "1.0.0"
+      },
+      "cpuSocketsPerComputeUnit": 2,
+      "disclosure": "Structural profile follows the published DGX platform; emitted state and performance are SIMULATED / S2.",
+      "fidelity": "exact",
+      "formFactor": "node",
+      "id": "system:dgx-b200",
+      "intraSystemFabricRefs": [
+        {
+          "id": "fabric:nvlink-5",
+          "version": "1.0.0"
+        },
+        {
+          "id": "fabric:nvswitch-4",
+          "version": "1.0.0"
+        }
+      ],
+      "name": "NVIDIA DGX B200",
+      "sourceIds": [
+        "source:nvidia-dgx-b200-user-guide",
+        "source:nvidia-fabric-manager"
+      ],
+      "structure": {
+        "acceleratorsPerComputeUnit": 8,
+        "computeUnitCount": 1,
+        "intraSystemTopology": "nvswitch",
+        "nvlinkDomainSize": 8,
+        "switchesPerSwitchUnit": 2,
+        "switchUnitCount": 1
+      },
+      "version": "1.0.0"
+    },
+    {
+      "acceleratorRef": {
+        "id": "accelerator:nvidia-gb200-blackwell-192gb",
+        "version": "1.0.0"
+      },
+      "cpuSocketsPerComputeUnit": 2,
+      "disclosure": "One immutable 72-GPU NVLink domain per published rack; multiple racks remain separate scale-up domains.",
+      "fidelity": "exact",
+      "formFactor": "rack",
+      "id": "system:gb200-nvl72",
+      "intraSystemFabricRefs": [
+        {
+          "id": "fabric:nvlink-5",
+          "version": "1.0.0"
+        },
+        {
+          "id": "fabric:nvswitch-4",
+          "version": "1.0.0"
+        }
+      ],
+      "name": "NVIDIA GB200 NVL72 rack",
+      "sourceIds": [
+        "source:nvidia-gb200-hardware",
+        "source:nvidia-fabric-manager"
+      ],
+      "structure": {
+        "acceleratorsPerComputeUnit": 4,
+        "computeUnitCount": 18,
+        "intraSystemTopology": "nvswitch",
+        "nvlinkDomainSize": 72,
+        "switchesPerSwitchUnit": 2,
+        "switchUnitCount": 9
+      },
+      "version": "1.0.0"
+    },
+    {
+      "acceleratorRef": {
+        "id": "accelerator:nvidia-b300-sxm-288gb",
+        "version": "1.0.0"
+      },
+      "cpuSocketsPerComputeUnit": 2,
+      "disclosure": "One immutable 72-GPU NVLink domain per published rack; multiple racks remain separate scale-up domains.",
+      "fidelity": "exact",
+      "formFactor": "rack",
+      "id": "system:gb300-nvl72",
+      "intraSystemFabricRefs": [
+        {
+          "id": "fabric:nvlink-5",
+          "version": "1.0.0"
+        },
+        {
+          "id": "fabric:nvswitch-4",
+          "version": "1.0.0"
+        }
+      ],
+      "name": "NVIDIA GB300 NVL72 rack",
+      "sourceIds": [
+        "source:nvidia-gb300-product",
+        "source:nvidia-gb200-hardware",
+        "source:nvidia-gb300-networking",
+        "source:nvidia-fabric-manager"
+      ],
+      "structure": {
+        "acceleratorsPerComputeUnit": 4,
+        "computeUnitCount": 18,
+        "intraSystemTopology": "nvswitch",
+        "nvlinkDomainSize": 72,
+        "switchesPerSwitchUnit": 2,
+        "switchUnitCount": 9
+      },
+      "version": "1.0.0"
+    },
+    {
+      "acceleratorRef": {
+        "id": "accelerator:nvidia-h100-sxm-80gb",
+        "version": "1.0.0"
+      },
+      "cpuSocketsPerComputeUnit": 2,
+      "disclosure": "USER-COMPOSABLE / SIMULATED: this graph places an H100 SXM-derived fact profile on a PCIe-only fabric; it is not an H100 PCIe card profile, NVIDIA reference platform or physical compatibility claim.",
+      "fidelity": "freeform",
+      "formFactor": "node",
+      "hostMemoryMiBPerComputeUnit": 524288,
+      "id": "system:freeform-h100-pcie-four",
+      "intraSystemFabricRefs": [
+        {
+          "id": "fabric:pcie-5-x16",
+          "version": "1.0.0"
+        }
+      ],
+      "name": "Freeform four-GPU PCIe-only node using an H100 SXM-derived profile",
+      "sourceIds": [
+        "source:nvidia-dgx-h100-user-guide",
+        "source:pci-sig-pcie5"
+      ],
+      "structure": {
+        "acceleratorsPerComputeUnit": 4,
+        "computeUnitCount": 1,
+        "intraSystemTopology": "pcie-only",
+        "nvlinkDomainSize": 1,
+        "switchesPerSwitchUnit": 0,
+        "switchUnitCount": 0
+      },
       "version": "1.0.0"
     }
   ]

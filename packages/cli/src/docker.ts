@@ -6,8 +6,8 @@ import { fileURLToPath } from "node:url";
 import { createSessionId } from "@infraenv/shared";
 import type { LocalSession } from "./session-file.js";
 
-export const RUNTIME_IMAGE = "infraenv/runtime:0.1.0-alpha.0";
-export const SANDBOX_IMAGE = "infraenv/sandbox:0.1.0-alpha.0";
+export const RUNTIME_IMAGE = "infraenv/runtime:0.2.0-alpha.0";
+export const SANDBOX_IMAGE = "infraenv/sandbox:0.2.0-alpha.0";
 
 export interface DockerRunResult { status: number; stdout: string; stderr: string }
 

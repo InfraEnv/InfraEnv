@@ -1,0 +1,34 @@
+{
+  "contentVersion": "0.2.0-alpha.0",
+  "defaultLocale": "zh-CN",
+  "integrity": {
+    "catalog/accelerators.json": "sha256-e6259162c5bae040e05ee7a8a561a3000576f8e6515e160963ffe1a3e7a5e24d",
+    "catalog/boot-profiles.json": "sha256-1bbdaa0bbc0f86b0896ce8343f11e439b63517d3939e1f95db2a9f0f10a4b9e7",
+    "catalog/cases.json": "sha256-60b53435598ee8309f401b22beda9e0561cd3ed6a8ef2951e46c4f5ad6abbf57",
+    "catalog/concepts.json": "sha256-7fb953db6b7bbadd159e36fd2ca7fef259942656b35073b656439ac8ef8be0f2",
+    "catalog/fabrics.json": "sha256-35e2a118704a6b9db0e5e7ac95fa6b4384e12d4c147f1a0545b3735832ca618b",
+    "catalog/presets.json": "sha256-78add338314a54a55ddcdafbea8411be3262c7fa48caa6c8823b0dcf9e89f7c6",
+    "catalog/sources.json": "sha256-a1c562159f28b3b4068a375299839ff594718388e40080637dbc7df2162df4a4",
+    "catalog/systems.json": "sha256-4fee8e1c2fcbae941e1e8135e7e51a84fdf301970a86771360724d40a806b99e",
+    "catalog/tools.json": "sha256-b29b5958087cc0853e3964693829ec03300c975bb6001ff7cf72bb696e6e44c0",
+    "catalog/topics.json": "sha256-82a114a48714861715b9e70e1194119f92f244b0cf3f0154918829438d2d30f8",
+    "courses/ai-infra-operations/chapters/distributed-training-diagnostics.yaml": "sha256-d4626f4aef25003383b0e75f45aa80fea16f01ca8e3cb20a47aa7f154e139a95",
+    "courses/ai-infra-operations/course.yaml": "sha256-1cfd9bda6c5099920b479377ad9976eb8d9d3aa69625a0d1634225d744c4368a",
+    "courses/ai-infra-operations/lessons/find-slow-worker.yaml": "sha256-d8b43ce9162412feafdda604869606e3d98ba3dab0016bd28e92b21d544bd194",
+    "labs/find-slow-worker.yaml": "sha256-96a8a732b0358702826c20764ab8904a20352b687ac7b7b3fc2a5ad1ae2dbca7",
+    "LICENSE.md": "sha256-d50cfeb4d953a158ae88713584a8c28db91c3c5b635f8d85b61f221fc18a6f81",
+    "manifest.yaml": "sha256-5bd5ec92e86eb0062fd1dca898146a45efb65f9d5f9dd90a6015c2dab02cd7ca",
+    "mdx/cases/c-socket-echo.mdx": "sha256-3f550af2e40965ea08d7544488d85d7860726ec3068cdff63d56e77f25c9f5c2",
+    "mdx/cases/cuda-vector-add.mdx": "sha256-216544dd9d2ff20f320adf41742891848d31bc43204adcbba55da0212e09436c",
+    "mdx/cases/mpi-first-message.mdx": "sha256-76d2a1f095280de62666ed7aaf424ef6f9a7222346a1940ef224c2310e8c5b4f",
+    "mdx/cases/openmp-parallel-reduction.mdx": "sha256-8e7c302dfae3107da18d3db34301451d735332158e4a0c4c4906b52fe9b9cfef",
+    "mdx/cases/ring-allreduce-simulator.mdx": "sha256-0f7c057c31d275e4cd508a536bd1e3ce19071c5c324226aa9e0502c5a7da631b",
+    "mdx/lessons/find-slow-worker.zh-CN.mdx": "sha256-20982f3cb9a2c89b363d575a1d781e1a09542f87ccfdf4a09ce0364454606389",
+    "scenarios/slow-worker-bandwidth-drop.v2.yaml": "sha256-8ee114763fe8b1cc31b3a97835ca9903a28219316244be8c93c94540dccb56dc"
+  },
+  "schemaVersion": "2.0.0",
+  "supportedLocales": [
+    "zh-CN",
+    "en"
+  ]
+}

@@ -27,4 +27,17 @@ describe("repository text encoding", () => {
     }
     expect(offenders).toEqual([]);
   });
+
+  it("keeps executable shebang files compatible with Linux", async () => {
+    const offenders: string[] = [];
+    const dockerEntrypoints = [
+      join(process.cwd(), "docker", "sandbox", "entrypoint.sh"),
+      join(process.cwd(), "docker", "sandbox", "infraenv-shim.py"),
+    ];
+    for (const path of dockerEntrypoints) {
+      const bytes = await readFile(path);
+      if (bytes.subarray(0, 2).toString("ascii") === "#!" && bytes.includes(Buffer.from("\r\n"))) offenders.push(path);
+    }
+    expect(offenders).toEqual([]);
+  });
 });

@@ -5,6 +5,8 @@ COPY package.json package-lock.json tsconfig.json ./
 COPY packages/shared/package.json packages/shared/package.json
 COPY packages/protocol/package.json packages/protocol/package.json
 COPY packages/simulation/package.json packages/simulation/package.json
+COPY packages/storage-gateway/package.json packages/storage-gateway/package.json
+COPY packages/supervisor/package.json packages/supervisor/package.json
 COPY packages/validator/package.json packages/validator/package.json
 COPY packages/runtime/package.json packages/runtime/package.json
 COPY packages/cli/package.json packages/cli/package.json

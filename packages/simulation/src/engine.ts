@@ -9,7 +9,7 @@ import {
   type SimulationSnapshot,
   type TrainingMetric
 } from "@infraenv/shared";
-import { findSlowWorkerLab, findSlowWorkerScenario } from "./scenario.js";
+import { findSlowWorkerLab, findSlowWorkerRuntimeScenario } from "./scenario.js";
 
 export interface EngineOptions {
   sessionId?: string;
@@ -39,7 +39,7 @@ export class SimulationEngine {
   private observations = { commands: [] as string[], inspectedNodes: [] as string[], metricGroups: [] as string[] };
   private hypothesis: { rootCause: string; target: string } | undefined;
 
-  constructor(scenario = findSlowWorkerScenario, options: EngineOptions = {}) {
+  constructor(scenario = findSlowWorkerRuntimeScenario, options: EngineOptions = {}) {
     this.scenario = structuredClone(scenario);
     this.sessionId = options.sessionId ?? createSessionId();
     this.virtualTimeSeconds = options.startTimeSeconds ?? this.primaryEvent().atSeconds + 5;
@@ -170,10 +170,10 @@ export class SimulationEngine {
       index,
       model: this.scenario.cluster.gpuModel,
       utilizationPercent: Number(utilization.toFixed(1)),
-      memoryUsedMiB: 68400 + Math.round(jitter * 700),
-      memoryTotalMiB: 81559,
+      memoryUsedMiB: Math.round((this.scenario.cluster.gpuMemoryMiB ?? 81920) * (0.83 + jitter * 0.02)),
+      memoryTotalMiB: this.scenario.cluster.gpuMemoryMiB ?? 81920,
       temperatureC: Math.round(isSlowWorker ? 58 + jitter * 3 : 70 + jitter * 5),
-      powerWatts: Math.round(isSlowWorker ? 410 + jitter * 20 : waitingForSlowWorker ? 465 + jitter * 25 : 655 + jitter * 30)
+      powerWatts: Math.round((this.scenario.cluster.gpuPowerLimitWatts ?? 700) * (isSlowWorker ? 0.58 + jitter * 0.03 : waitingForSlowWorker ? 0.66 + jitter * 0.04 : 0.92 + jitter * 0.04))
     };
   }
 

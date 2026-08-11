@@ -20,8 +20,8 @@ export function probeDocker(spawnProbe: SpawnProbe = defaultProbe): DockerProbe 
   }
   const info = spawnProbe("docker", ["info", "--format", "{{.OSType}}"]);
   if (info.error || info.status !== 0) return { available: false, reason: info.error?.message ?? (info.stderr.trim() || "Docker info did not respond.") };
-  const runtimeImage = spawnProbe("docker", ["image", "inspect", "infraenv/runtime:0.1.0-alpha.0"]);
-  const sandboxImage = spawnProbe("docker", ["image", "inspect", "infraenv/sandbox:0.1.0-alpha.0"]);
+  const runtimeImage = spawnProbe("docker", ["image", "inspect", "infraenv/runtime:0.2.0-alpha.0"]);
+  const sandboxImage = spawnProbe("docker", ["image", "inspect", "infraenv/sandbox:0.2.0-alpha.0"]);
   return { available: true, version: result.stdout.trim(), osType: info.stdout.trim(), imagesReady: runtimeImage.status === 0 && sandboxImage.status === 0 };
 }
 

@@ -37,7 +37,7 @@ async function waitForHealth(url) {
 const daemon = docker(["info", "--format", "{{.OSType}}"], { allowFailure: true });
 if (daemon.status !== 0) throw new Error("Docker daemon is unavailable. Start Docker Desktop and rerun npm run test:docker.");
 if (daemon.stdout !== "linux") throw new Error(`Docker must use Linux containers; current OSType is ${daemon.stdout}.`);
-for (const image of ["infraenv/runtime:0.1.0-alpha.0", "infraenv/sandbox:0.1.0-alpha.0"]) {
+for (const image of ["infraenv/runtime:0.2.0-alpha.0", "infraenv/sandbox:0.2.0-alpha.0"]) {
   if (docker(["image", "inspect", image], { allowFailure: true }).status !== 0) throw new Error(`Missing ${image}. Run npm run docker:build first.`);
 }
 
@@ -51,7 +51,7 @@ try {
     "--tmpfs", "/run:rw,nosuid,size=16m", "--mount", `type=volume,source=${volume},target=/data`,
     "-e", "INFRAENV_PORT=8080", "-e", "INFRAENV_UI_ROOT=/opt/infraenv/ui", "-e", "INFRAENV_PROGRESS_FILE=/data/progress.jsonl",
     "-e", `INFRAENV_SESSION_ID=${sessionId}`, "-e", `INFRAENV_HOST_TOKEN=${tokens.host}`, "-e", `INFRAENV_SANDBOX_TOKEN=${tokens.sandbox}`, "-e", `INFRAENV_UI_LAUNCH_TOKEN=${tokens.ui}`,
-    "-e", "INFRAENV_CURRICULUM_CHECKSUM=sha256-e2e", "-p", "127.0.0.1:0:8080", "infraenv/runtime:0.1.0-alpha.0"
+    "-e", "INFRAENV_CURRICULUM_CHECKSUM=sha256-e2e", "-p", "127.0.0.1:0:8080", "infraenv/runtime:0.2.0-alpha.0"
   ]);
   const port = docker(["port", runtime, "8080/tcp"]).stdout.match(/:(\d+)$/)?.[1];
   assert(port, "Could not resolve the loopback runtime port.");
@@ -76,7 +76,7 @@ try {
     "run", "--rm", "-i", "--name", nonTtySandbox, "--network", network, ...security("sandbox"),
     "--tmpfs", "/home/learner:rw,nosuid,size=256m,uid=10001,gid=10001,mode=0755",
     "-e", `INFRAENV_API_URL=http://${runtime}:8080/v1`, "-e", `INFRAENV_SANDBOX_TOKEN=${tokens.sandbox}`,
-    "infraenv/sandbox:0.1.0-alpha.0"
+    "infraenv/sandbox:0.2.0-alpha.0"
   ], { input: "exit\n" });
   assert(nonTty.stdout.includes("InfraEnv Ubuntu Learning Sandbox") && nonTty.stdout.includes("SIMULATED / S2"), "Non-TTY real Bash lifecycle did not start and exit cleanly.");
 
@@ -84,7 +84,7 @@ try {
     "run", "-d", "--name", sandbox, "--network", network, ...security("sandbox"),
     "--tmpfs", "/home/learner:rw,nosuid,size=256m,uid=10001,gid=10001,mode=0755",
     "-e", `INFRAENV_API_URL=http://${runtime}:8080/v1`, "-e", `INFRAENV_SANDBOX_TOKEN=${tokens.sandbox}`,
-    "--entrypoint", "sleep", "infraenv/sandbox:0.1.0-alpha.0", "infinity"
+    "--entrypoint", "sleep", "infraenv/sandbox:0.2.0-alpha.0", "infinity"
   ]);
 
   const networkInspect = JSON.parse(docker(["network", "inspect", network]).stdout)[0];
@@ -132,14 +132,14 @@ try {
 
   docker(["stop", "--time", "10", runtime], { timeout: 15_000 });
   runtimeStopped = true;
-  const jsonl = docker(["run", "--rm", "--user", "0:0", "--mount", `type=volume,source=${volume},target=/data,readonly`, "--entrypoint", "cat", "infraenv/sandbox:0.1.0-alpha.0", "/data/progress.jsonl"]).stdout;
+  const jsonl = docker(["run", "--rm", "--user", "0:0", "--mount", `type=volume,source=${volume},target=/data,readonly`, "--entrypoint", "cat", "infraenv/sandbox:0.2.0-alpha.0", "/data/progress.jsonl"]).stdout;
   assert(jsonl.includes('"event":"session.stopped"'), "Graceful container stop did not persist session.stopped.");
   const records = jsonl.trim().split("\n").map((line) => JSON.parse(line));
   for (const record of records) {
     assert(record.sessionId === sessionId, "Learning record sessionId drifted from the host session.");
-    assert(record.contentVersion === "0.1.0-alpha.0", "Learning record contentVersion is missing or incorrect.");
-    assert(record.runtimeVersion === "0.1.0-alpha.0", "Learning record runtimeVersion is missing or incorrect.");
-    assert(record.scenarioId === "scenario:slow-worker-bandwidth-drop" && record.scenarioVersion === "1.0.0", "Learning record Scenario identity is missing or incorrect.");
+    assert(record.contentVersion === "0.2.0-alpha.0", "Learning record contentVersion is missing or incorrect.");
+    assert(record.runtimeVersion === "0.2.0-alpha.0", "Learning record Runtime identity is missing or incorrect.");
+    assert(record.scenarioId === "scenario:slow-worker-bandwidth-drop" && record.scenarioVersion === "2.0.0", "Learning record Scenario identity is missing or incorrect.");
     assert(record.curriculumChecksum === "sha256-e2e", "Learning record curriculum checksum is missing or incorrect.");
   }
   console.log("Docker E2E passed: isolation, real Ubuntu shell, 128 simulated GPUs, diagnosis, repair, validation and graceful JSONL stop.");
