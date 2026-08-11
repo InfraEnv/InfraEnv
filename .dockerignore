@@ -1,0 +1,9 @@
+.git
+.github
+.infraenv
+node_modules
+**/dist
+coverage
+*.log
+tests
+README.md

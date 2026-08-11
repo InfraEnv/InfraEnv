@@ -1,0 +1,38 @@
+{
+  "name": "infraenv-monorepo",
+  "version": "0.1.0-alpha.0",
+  "private": true,
+  "description": "Portable AI infrastructure learning and S2 simulation runtime",
+  "license": "Apache-2.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "build": "npm run content:check && npm run build --workspace @infraenv/shared && npm run build --workspace @infraenv/protocol && npm run build --workspace @infraenv/simulation && npm run build --workspace @infraenv/validator && npm run build --workspace @infraenv/runtime && npm run build --workspace @infraenv/cli && npm run build --workspace @infraenv/web-ui",
+    "dev:runtime": "npm run dev --workspace @infraenv/runtime",
+    "dev:ui": "npm run dev --workspace @infraenv/web-ui",
+    "lint": "eslint .",
+    "audit:prod": "npm audit --omit=dev --audit-level=high --registry=https://registry.npmjs.org",
+    "test": "npm run build && vitest run",
+    "test:docker": "node scripts/docker-e2e.mjs",
+    "content:sync": "node scripts/sync-curriculum.mjs",
+    "content:check": "node scripts/check-curriculum.mjs",
+    "curriculum:sync": "npm run content:sync",
+    "docker:build": "node scripts/docker-build.mjs"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "@types/node": "^24.10.1",
+    "eslint": "^9.39.2",
+    "tsx": "^4.21.0",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.48.1",
+    "vitest": "^4.0.15"
+  }
+}

@@ -1,0 +1,6 @@
+InfraEnv
+Copyright 2026 InfraEnv Contributors
+
+The built-in curriculum snapshot under vendor/curriculum is generated from
+educational content intended for distribution under CC BY 4.0. The runtime,
+compiler-facing contracts, and source code are Apache-2.0.

@@ -1,0 +1,17 @@
+{
+  "name": "@infraenv/protocol",
+  "version": "0.1.0-alpha.0",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": { ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" } },
+  "scripts": { "build": "tsup src/index.ts --format esm --dts --clean" },
+  "dependencies": {
+    "@infraenv/shared": "0.1.0-alpha.0",
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1"
+  },
+  "engines": { "node": ">=22" }
+}
